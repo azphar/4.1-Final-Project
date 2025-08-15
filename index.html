@@ -6,25 +6,41 @@
     <link rel="stylesheet" href="./styles.css">
     <title>Home Page</title>
 </head>
-<body>
-    <header id="siteHeader">
-        <div id="headerWrapper">
-            <div id="logoArea">
-                <a href="index.html">
-                    <img src="./assets/fulllogo.png" alt="full logo" id="sitelogo">
-                    </a>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="page2.html">Go to Page 2</a></li>
-        </ul>
+
+<header id="siteHeader">
+  <div id="headerWrapper">
+    <!-- Left: Logo -->
+    <a href="index.html" id="logoLink" aria-label="Seek & Find Adventure - Home">
+      <img src="./assets/fulllogo.png" alt="Seek & Find Adventure" id="siteLogo">
+    </a>
+
+    <!-- Center: Nav -->
+    <nav id="mainNav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page2.html">Find Your Paradise</a></li>
+      </ul>
     </nav>
+
+    <!-- Right: Call to action -->
+    <a href="#contactSection" id="contactBtn">Contact</a>
+  </div>
+</header>
+
     <main>
-        <section>
-            <h2>About Us</h2>
-            <p>This is the home page content.</p>
-        </section>
+        <section id="heroSearch">
+            <div class="container hero-search">
+            <h2 class="hero-search_title">
+                We Seek far & wide to Find your kind of paradise</h2>
+            <p class="hero-search_subtitle">
+                Where would you like to go?</p>
+           <form class="searchbar" role="search" aria-label="Find a trip" onsubmit="event.preventDefault()">
+      <label for="searchQuery" class="sr-only">Search by City, Country or Continent</label>
+      <input id="searchQuery" type="search" placeholder="Search by City, Country or Continent" />
+      <button type="submit" aria-label="Search">🔍</button>
+    </form>
+  </div>
+</section>
     </main>
 </body>
 </html>
