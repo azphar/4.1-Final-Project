@@ -1,0 +1,48 @@
+/* Limit the header width and center it */
+#headerWrapper {
+  width: 100%;
+  max-width: 1280px;  /* keeps layout from getting too wide */
+  margin: 0 auto;     /* centers wrapper in page */
+  padding: 0 32px;    /* space on left/right inside wrapper */
+
+  display: flex;      /* put logo, nav, and contact in a row */
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;       /* adjust for your preferred header height */
+}
+
+#siteLogo {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+/* Optional styling for the nav links */
+#mainNav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+#mainNav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #243e63; /* adjust color */
+}
+
+#mainNav a:hover {
+  color: #6c3bff; /* hover color */
+}
+
+/* Make the contact button stand out */
+#contactBtn {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #6c3bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}

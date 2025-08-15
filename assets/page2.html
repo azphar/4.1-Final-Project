@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restricted Page</title>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                alert("Inspect tool is not allowed!");
+                event.preventDefault(); // Prevent the default action
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>This is the Secondary Page</h1>
+    <p>Content here is restricted from inspection.</p>
+</body>
+</html>
+
