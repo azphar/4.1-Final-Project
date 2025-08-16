@@ -15,6 +15,9 @@ async function fetchDestinations() {
     const codes = ['fji','mdv','nzl','nld','kna','pan']; // Fiji, Maldives, New Zealand, Netherlands, Saint Kitts & Nevis, Panama
     const url = `https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}&fields=name,flags,capital,region,subregion,cca3`;
     const res = await fetch(url);
+    const LOCAL_PHOTOS = {
+        
+    }
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     return data.map(c => ({
