@@ -183,17 +183,30 @@ img {display: block; }
   margin: 24px auto;
 }
 
-/* ===== Page 2 hero ===== */
+/* Page 2 hero */
 #page2Hero{
   position: relative;
-  min-height: 360px;                 /* adjust to taste (320–440px) */
+  min-height: clamp(320px, 38vw, 560px);
   display: grid;
   place-items: center;
   text-align: center;
   color: #fff;
-  /* background image */
-  background: url("./assets/hero/page2-hero.jpg") center/cover no-repeat;
+
+  background: url("./assets/horseshoe-sky.jpg");
+  background-size: cover;
+  background-position: center 60%;
+  background-repeat: no repeat;
 }
+
+/* optional dark overlay to keep text readable */
+#page2Hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(10,14,35,.35); /* adjust 0.2–0.55 to taste */
+}
+
+#page2Hero .hero__inner{ position:relative; z-index:1; }
+
 
 /* Dark overlay so white text pops */
 #page2Hero::after{
@@ -239,6 +252,17 @@ img {display: block; }
   color:#fff;
   border: 1px solid rgba(255,255,255,.35);
 }
+
+/* hero sizing for the bar so it matches the reference */
+.searchrow--hero{
+  margin-top: 16px;        /* space under the H1 */
+  max-width: 760px;        /* controls total width of bar + button */
+}
+
+/* keep input + button the same height for a clean edge */
+.searchrow--hero .searchbar input{ height: 56px; font-size: 16px; }
+.searchrow--hero .searchbtn{ height: 56px; padding: 0 22px; border-radius: 12px; }
+
 
 
 

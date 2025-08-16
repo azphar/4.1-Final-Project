@@ -30,13 +30,12 @@
             <p class="hero-search_subtitle">
                 Where would you like to go?</p>
 
-        <form class="searchrow" role="search" aria-label="Find a trip" onsubmit="event.preventDefault()">
+        <form class="searchrow" action="./page2.html" method="GET">
       <label for="searchQuery" class="sr-only">Search by City, Country or Continent</label>
 
       <div class="searchbar">
-      <input id="searchQuery" type="search" placeholder="Search by City, Country or Continent" />
+      <input id="searchQuery" name="q" type="search" placeholder="Search by City, Country or Continent"/>
       </div>
-
       <button type="submit" class="searchbtn" aria-label="Search">🔍</button>
   </form>
     </div>

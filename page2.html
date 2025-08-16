@@ -7,29 +7,42 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body class="page2">
-  <!-- same header as page 1 -->
   <header id="siteHeader">
     <div id="headerWrapper">
       <a href="index.html" id="logoLink" aria-label="Seek & Find Adventure - Home">
         <img src="./assets/fulllogo.png" alt="Seek & Find Adventure" id="siteLogo" />
       </a>
-
       <nav id="mainNav" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="page2.html" aria-current="page">Find Your Paradise</a></li>
         </ul>
       </nav>
-
       <a href="#contactSection" id="contactBtn">Contact</a>
     </div>
   </header>
 
-  <!-- HERO with background image -->
   <section id="page2Hero">
     <div class="hero__inner container">
-      <h1 class="hero-title">Browse our cars</h1>
-      <!-- we’ll add the search bar here next -->
+      <h1 class="hero-title">Find Your Paradise</h1>
+     <form id="filterForm" class="searchrow searchrow--hero" role="search" onsubmit="event.preventDefault()">
+  <label for="filter" class="sr-only">Search by city, country or region</label>
+
+  <!-- outer pill (input only) -->
+  <div class="searchbar">
+    <input
+      id="filter"
+      type="search"
+      placeholder="Search by city, country or region"
+      autocomplete="off"
+      enterkeyhint="search"
+    />
+  </div>
+
+  <!-- button sits OUTSIDE the pill -->
+  <button type="submit" class="searchbtn" aria-label="Search">🔎</button>
+</form>
+
     </div>
   </section>
 
