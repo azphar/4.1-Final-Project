@@ -183,6 +183,62 @@ img {display: block; }
   margin: 24px auto;
 }
 
+/* ===== Page 2 hero ===== */
+#page2Hero{
+  position: relative;
+  min-height: 360px;                 /* adjust to taste (320–440px) */
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  /* background image */
+  background: url("./assets/hero/page2-hero.jpg") center/cover no-repeat;
+}
+
+/* Dark overlay so white text pops */
+#page2Hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(
+    rgba(10, 14, 35, .55),
+    rgba(10, 14, 35, .55)
+  );
+}
+
+#page2Hero .hero__inner{
+  position: relative;                /* sit above the overlay */
+  z-index: 1;
+  padding: 72px 0;                   /* breathing room inside hero */
+}
+
+.hero-title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: .02em;
+  line-height: 1.15;
+  font-size: clamp(32px, 5.4vw, 64px);  /* responsive like the example */
+}
+
+/* ===== Page-2 specific header tweaks (overrides) ===== */
+.page2 #siteHeader{
+  position: absolute;                /* float header over the photo */
+  top: 0; left: 0; right: 0;
+  background: transparent;           /* no solid bar */
+  z-index: 10;
+}
+
+/* smaller logo on the photo so it doesn’t dominate */
+.page2 #siteLogo{ height: 80px; }
+
+/* light text & button on dark photo */
+.page2 #mainNav ul li a{ color: #fff; }
+.page2 #mainNav ul li a:hover{ color: #d6ccff; }
+
+.page2 #contactBtn{
+  background: rgba(255,255,255,.15);
+  color:#fff;
+  border: 1px solid rgba(255,255,255,.35);
+}
 
 
 
