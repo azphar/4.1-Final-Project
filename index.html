@@ -4,43 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./pagel.js"></script>
     <title>Home Page</title>
 </head>
 
 <header id="siteHeader">
   <div id="headerWrapper">
-    <!-- Left: Logo -->
     <a href="index.html" id="logoLink" aria-label="Seek & Find Adventure - Home">
       <img src="./assets/fulllogo.png" alt="Seek & Find Adventure" id="siteLogo">
     </a>
-
-    <!-- Center: Nav -->
     <nav id="mainNav" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="page2.html">Find Your Paradise</a></li>
       </ul>
     </nav>
-
-    <!-- Right: Call to action -->
     <a href="#contactSection" id="contactBtn">Contact</a>
   </div>
 </header>
-
     <main>
         <section id="heroSearch">
-            <div class="container hero-search">
+            <div class="hero-search">
             <h2 class="hero-search_title">
-                We Seek far & wide to Find your kind of paradise</h2>
+                We <span class="purple">SEEK</span> far & wide to <span class="purple">FIND</span> your kind of paradise</h2>
             <p class="hero-search_subtitle">
                 Where would you like to go?</p>
-           <form class="searchbar" role="search" aria-label="Find a trip" onsubmit="event.preventDefault()">
+
+        <form class="searchrow" role="search" aria-label="Find a trip" onsubmit="event.preventDefault()">
       <label for="searchQuery" class="sr-only">Search by City, Country or Continent</label>
+
+      <div class="searchbar">
       <input id="searchQuery" type="search" placeholder="Search by City, Country or Continent" />
-      <button type="submit" aria-label="Search">🔍</button>
-    </form>
-  </div>
+      </div>
+
+      <button type="submit" class="searchbtn" aria-label="Search">🔍</button>
+  </form>
+    </div>
 </section>
+    <img src="./assets/undraw_explore_kfv3.svg" alt="Explore" class="explore">
     </main>
 </body>
 </html>
