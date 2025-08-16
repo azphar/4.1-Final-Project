@@ -198,17 +198,18 @@ img {display: block; }
   background-repeat: no repeat;
 }
 
-/* optional dark overlay to keep text readable */
 #page2Hero::after{
   content:"";
-  position:absolute; inset:0;
-  background: rgba(10,14,35,.35); /* adjust 0.2–0.55 to taste */
+  position:absolute; 
+  inset:0;
+  background: rgba(10,14,35,.35); 
+  pointer-events: none;
 }
 
-#page2Hero .hero__inner{ position:relative; z-index:1; }
+#page2Hero .hero__inner{ 
+  position:relative; 
+  z-index:1; }
 
-
-/* Dark overlay so white text pops */
 #page2Hero::after{
   content:"";
   position:absolute; inset:0;
@@ -281,6 +282,14 @@ img {display: block; }
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(17, 24, 39, .06);
+}
+
+.card .price {
+  margin: 8px 16px 16px;
+  font-weight: 800;
+  font-size: 16px;
+  color: #1b2a4b;
+  margin-top: auto;
 }
 
 
