@@ -23,32 +23,36 @@
   </header>
 
   <section id="page2Hero">
-    <div class="hero__inner container">
-      <h1 class="hero-title">Find Your Paradise</h1>
-     <form id="filterForm" class="searchrow searchrow--hero" role="search" onsubmit="event.preventDefault()">
-  <label for="filter" class="sr-only">Search by city, country or region</label>
+  <div class="hero__inner container">
+    <h1 class="hero-title">Find Your Paradise</h1>
 
-  <!-- outer pill (input only) -->
-  <div class="searchbar">
-    <input
-      id="filter"
-      type="search"
-      placeholder="Search by city, country or region"
-      autocomplete="off"
-      enterkeyhint="search"
-    />
+    <!-- Search form lives here -->
+    <form id="filterForm" class="searchrow searchrow--hero" role="search" onsubmit="event.preventDefault()">
+      <label for="filter" class="sr-only">Search by city, country or region</label>
+
+      <!-- Outer pill (input only) -->
+      <div class="searchbar">
+        <input
+          id="filter"
+          type="search"
+          placeholder="Search by city, country or region"
+          autocomplete="off"
+          enterkeyhint="search"
+        />
+      </div>
+
+      <!-- Button OUTSIDE the pill -->
+      <button type="submit" class="searchbtn" aria-label="Search">🔎</button>
+    </form>
   </div>
+</section>
 
-  <!-- button sits OUTSIDE the pill -->
-  <button type="submit" class="searchbtn" aria-label="Search">🔎</button>
-</form>
-
-    </div>
-  </section>
 
   <main class="container">
-    <!-- page 2 content goes here -->
+    <div id="status" aria-live="polite">Loading…</div>
+    <div id="destGrid" class="grid"></div>
   </main>
+  <script type="module" src="./page2.js"></script>
 </body>
 </html>
 
