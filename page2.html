@@ -10,8 +10,9 @@
   <header id="siteHeader">
     <div id="headerWrapper">
       <a href="index.html" id="logoLink" aria-label="Seek & Find Adventure - Home">
-        <img src="./assets/fulllogo.png" alt="Seek & Find Adventure" id="siteLogo" />
-      </a>
+  <img src="/assets/fulllogo_transparent.png?v=1" alt="Seek & Find Adventure" id="siteLogo" />
+</a>
+
       <nav id="mainNav" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -26,11 +27,9 @@
   <div class="hero__inner container">
     <h1 class="hero-title">Find Your Paradise</h1>
 
-    <!-- Search form lives here -->
     <form id="filterForm" class="searchrow searchrow--hero" role="search" onsubmit="event.preventDefault()">
       <label for="filter" class="sr-only">Search by city, country or region</label>
 
-      <!-- Outer pill (input only) -->
       <div class="searchbar">
         <input
           id="filter"
@@ -41,7 +40,6 @@
         />
       </div>
 
-      <!-- Button OUTSIDE the pill -->
       <button type="submit" class="searchbtn" aria-label="Search">🔎</button>
     </form>
   </div>

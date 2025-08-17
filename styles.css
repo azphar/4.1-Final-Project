@@ -15,8 +15,13 @@ img {display: block; }
 }
 
 #siteLogo {
-    height: 200px;
+    height: 240px;
     width: auto;
+}
+
+.page2 #siteLogo {
+  height: 200px;
+  width: auto;
 }
 
 #mainNav {
