@@ -317,6 +317,76 @@ img {display: block; }
 }
 
 
+@media (max-width: 1024px) {
+ 
+  #siteLogo {
+    height: 120px;
+  }
+
+  #mainNav ul {
+    gap: 16px;
+  }
+
+  .card {
+    flex: 1 1 calc((100% - 28px) / 2);
+    max-width: calc((100% - 28px) / 2);
+  }
+
+  
+  .hero-title {
+    font-size: clamp(28px, 4.5vw, 48px);
+  }
+
+  
+  .searchbar__wrapper {
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  
+  #mainNav ul {
+    flex-direction: column;
+    gap: 12px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+
+  #siteLogo {
+    height: 80px;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .searchrow {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .searchbar__wrapper input,
+  .searchbar__wrapper button,
+  .searchbtn {
+    width: 100%;
+  }
+
+  .hero-search__title {
+    font-size: clamp(24px, 6vw, 36px);
+  }
+  .hero-search__subtitle {
+    font-size: clamp(12px, 3.5vw, 16px);
+  }
+
+  #status {
+    font-size: 18px;
+  }
+}
+
 
 
 
