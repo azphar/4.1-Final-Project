@@ -6,18 +6,6 @@ const STATUS = document.getElementById('status');
 const params = new URLSearchParams(location.search);
 const qParam = params.get('q')?.trim() || '';
 
-async function fetchDestinations() {
-  STATUS.textContent = 'Loading destinations…';
-    try {
-        const res ,await
-    }
-
-    catch {res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP $res.status}`);
-
-const codes = ['fji','mdv','nzl','nld','kna','pan']; 
-    const url = `https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}&fields-name,flags,capital,region,subregion,cca3`;
-
 const LOCAL_PHOTOS = {
   NZL: './assets/destinations/new-zealand.jpg',
   FJI: './assets/destinations/fiji.jpg',
@@ -26,7 +14,6 @@ const LOCAL_PHOTOS = {
   PAN: './assets/destinations/panama.jpg',
   NLD: './assets/destinations/netherlands.jpg'
 };
-
 
 const PRICE_MAP = {
   NZL: 1899,
@@ -42,43 +29,59 @@ const fmtUSD = (n) =>
     ? n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
     : '—';
 
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+// --- rendering ---
+function render(list) {
+  if (!Array.isArray(list)) list = [];
+  const six = list.slice(0, 6);
+  GRID.innerHTML = six.map(it => {
+    const src = it.photoLocal || it.photo || it.flag || '';
+    return `
+      <article class="card">
+        <img src="${src}" alt="${it.name}">
+        <h3>${it.name}</h3>
+        <p><strong>Capital:</strong> ${it.capital}</p>
+        <p><strong>Region:</strong> ${it.region}${it.subregion ? ' · ' + it.subregion : ''}</p>
+        <p class="price">From ${it.price != null ? fmtUSD(it.price) : 'Contact for pricing'}</p>
+      </article>
+    `;
+  }).join('');
+  STATUS.textContent = "Search Results";
 
-    return data.map(c => ({
-      id: c.cca3,
-      name: c.name?.common ?? 'Unknown',
-      capital: Array.isArray(c.capital) ? c.capital[0] : (c.capital ?? '—'),
-      region: c.region ?? '—',
-      subregion: c.subregion ?? '',
-      flag: (c.flags && (c.flags.svg || c.flags.png)) || '',
-      photoLocal: LOCAL_PHOTOS[(c.cca3 || '').toUpperCase()] || null
-    }));
-  } try {(e) => {
+}
+
+// --- data load ---
+async function fetchDestinations() {
+  STATUS.textContent = 'Loading destinations…';
+
+  const codes = ['fji','mdv','nzl','nld','kna','pan'];
+  const url = `https://restcountries.com/v3.1/alpha?codes=${codes.join(',')}&fields=name,flags,capital,region,subregion,cca3`;
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const data = await res.json();
+    return data.map(c => {
+      const code = (c.cca3 || '').toUpperCase();
+      return {
+        id: code,
+        name: c.name?.common ?? 'Unknown',
+        capital: Array.isArray(c.capital) ? c.capital[0] : (c.capital ?? '—'),
+        region: c.region ?? '—',
+        subregion: c.subregion ?? '',
+        flag: (c.flags && (c.flags.svg || c.flags.png)) || '',
+        photoLocal: LOCAL_PHOTOS[code] || null,
+        price: PRICE_MAP[code] ?? null
+      };
+    });
+  } catch (e) {
     console.error(e);
     STATUS.textContent = 'Failed to load. Please try again.';
     return [];
   }
 }
 
-finally {render(items) 
-  const six = items.slice(0, 6);
-  GRID.innerHTML = six.map(it => {
-      const src= it.photoLocal || it.photo || it.flag;
-      return `
-      <article class="card">
-      <img src="${src}" alt="${it.name}">
-      <h3>${it.name}</h3>
-      <p><strong>Capital:</strong> ${it.capital}</p>
-      <p><strong>Region:</strong> ${it.region}${it.subregion ? ' · ' + it.subregion : ''}</p>
-      <p class="price">From ${it.price != null ? fmtUSD(it.price) : 'Contact for pricing'}</p>
-    </article>
-    `;
-  }).join('');
-  STATUS.textContent = `${six.length} destinations`;
-}
-
-// --- filter based on the input value ---
+// --- filtering ---
 function applyFilter(all) {
   const q = (FILTER?.value || '').trim().toLowerCase();
   const out = q
@@ -91,7 +94,7 @@ function applyFilter(all) {
   render(out);
 }
 
-// --- YOUR SNIPPET (bootstraps the page) ---
+// --- bootstrap ---
 document.addEventListener('DOMContentLoaded', async () => {
   const all = await fetchDestinations();
   console.table(all.map(x => ({ code: x.id, name: x.name, price: x.price })));
@@ -101,4 +104,3 @@ document.addEventListener('DOMContentLoaded', async () => {
   FORM?.addEventListener('submit', e => { e.preventDefault(); applyFilter(all); });
   FILTER?.addEventListener('input', () => applyFilter(all));
 });
-}
